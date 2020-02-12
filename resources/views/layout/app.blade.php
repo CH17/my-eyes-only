@@ -4,10 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-        <link rel="stylesheet" href="css/app.css">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <title>My Eyes Only | Send your confidential message</title>
+        <link rel="stylesheet" href="/css/app.css">
 
     </head>
     <body>
@@ -29,7 +27,8 @@
                 @yield('content')
             </div>
         </div>
+        <script src="/js/app.js"></script>
     </body>
 
-    <script src="js/app.js"></script>
+  
 </html>

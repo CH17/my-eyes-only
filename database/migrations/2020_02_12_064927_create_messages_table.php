@@ -16,9 +16,11 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug');
-            $table->text('message');
-            $table->boolean('is_viewonly');
-            $table->dateTime('expire_at');
+            $table->text('text');
+            $table->boolean('is_onetime')->default(false);
+            $table->dateTime('expired_at')->nullable();
+            $table->string('password')->nullable();
+            $table->dateTime('read_at')->nullable();
             $table->timestamps();
         });
     }
