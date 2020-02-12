@@ -12,16 +12,7 @@ use Illuminate\Support\Str;
 
 class MessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
+    
     public function store(Request $request)
     {
         //TODO: Make it new rules file under Request
@@ -64,37 +55,37 @@ class MessageController extends Controller
     public function show($slug)
     {
         
-        $message = Message::where('slug', $slug)->first();
+        $message = Message::where('slug', $slug)
+                            ->whereNull('read_at')
+                            ->first();
         
-        $message_text= "";
+        $message_data= [];
         
         if($message){
+
+            if($message->is_onetime){
+                $this->updateExpired_at($message);
+            }
+
             $message_text =  Crypt::decryptString($message->text);
+
+            $message_data = [
+                'message_text' => $message_text,
+                'expired_at'  => $message->expired_at
+            ];
         }
         
-        return view('message.show', ['message_text' =>  $message_text]);
+        return view('message.show', ['message_data' => $message_data]);
+       // return view('message.show')->with(compact('message_data'));
+        //return view('message.show', ['message_data' =>  $message_data]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Message $message)
-    {
-        //
+
+    public function update($message){
+    
+        $message->expired_at = Carbon::now();
+        $message->read_at = Carbon::now();
+        $message->save();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Message $message)
-    {
-        //
-    }
 }
