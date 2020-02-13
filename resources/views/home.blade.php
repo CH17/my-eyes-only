@@ -1,5 +1,5 @@
 @extends('layout.app')
 
 @section('content')
-    <message></message>
+    <create-message></create-message>
 @endsection

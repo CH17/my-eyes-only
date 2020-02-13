@@ -23,7 +23,10 @@ class MessageController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return "FAILED";
+            return Response::json([
+                'success' => false,
+                'errors' => $validator->messages()
+            ],422);
         }
 
         $message = new Message;
@@ -47,7 +50,7 @@ class MessageController extends Controller
 
         return Response::json([
                 'success' => true,
-                'slug' => $slug
+                'url' => route('message', ['slug' => $slug])
             ],201);
     }
 

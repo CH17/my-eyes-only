@@ -10,22 +10,24 @@
     </head>
     <body>
         <div id="app" class="flex-center position-ref full-height">  
+            
+            @include('layout.header')
 
-
-    <!-- header -->
-        <header class="header header-sticky">
-            <div class="container">
-              <div class="row">
-                <nav class="navbar navbar-expand-lg text-center">
-                  <a href="#" class="navbar-brand order-1 order-lg-2">My Eyes Only</a>    
-                </nav>
-              </div>
-            </div>
-          </header>
-
-            <div class=" content">
-                @yield('content')
-            </div>
+           <div class="content pt-5 pb-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+                            @yield('content')
+                        </div>
+                        
+                        <div class="col-md-4">
+                            @include('layout.sidebar')
+                        </div>
+							
+					</div><!--/.row-->
+				</div><!--/.container-->
+            </div><!--/.content-->
+                
         </div>
         <script src="/js/app.js"></script>
     </body>
