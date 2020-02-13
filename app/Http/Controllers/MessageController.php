@@ -64,7 +64,7 @@ class MessageController extends Controller
         if($message){
 
             if($message->is_onetime){
-                $this->updateExpired_at($message);
+                $this->update($message);
             }
 
             $message_text =  Crypt::decryptString($message->text);
@@ -76,8 +76,6 @@ class MessageController extends Controller
         }
         
         return view('message.show', ['message_data' => $message_data]);
-       // return view('message.show')->with(compact('message_data'));
-        //return view('message.show', ['message_data' =>  $message_data]);
     }
 
 
