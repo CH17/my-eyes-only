@@ -4,17 +4,31 @@ An application for secret message sharing specially developed for passing confid
 
 ## Features
 
-- Secret message Sending.
+- Secret message sending.
 - Set only one time view or day based expiration.
 - Password protection.
-- Auto Deletion
+- Auto deletion by Laravel Schedule
+- Stored with Encryption
 
 ## Tools
 
- - [Laravel](#)
- - [Vue JS](#)
- - [Bootstrap](#)
- - Scss
+ - [Laravel](https://laravel.com/)
+ - [Vue JS](https://vuejs.org/)
+ - [Bootstrap](getbootstrap.com/)
 
 ## Usage
 
+```php
+php artisan migrate
+```
+
+```php
+php artisan db:seed
+```
+
+```php
+npm run
+```
+```php
+php artisan schedule:run
+```

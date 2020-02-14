@@ -21,6 +21,12 @@ textarea, .text-font{
 .small-font{
   font-size: 16px;
 }
+
+.time_count{
+  font-size: 48px;
+  font-weight: bolder; 
+  margin-left: 16px; 
+}
 /**
  *  Source: https://cpratt.co/twitter-bootstrap-callout-css-styles/
  */
