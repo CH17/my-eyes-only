@@ -19,6 +19,14 @@ An application for secret message sharing specially developed for passing confid
 ## Usage
 
 ```php
+composer update
+```
+
+```php
+npm install
+```
+
+```php
 php artisan migrate
 ```
 
@@ -27,7 +35,7 @@ php artisan db:seed
 ```
 
 ```php
-npm run
+npm run dev or npm run prod
 ```
 ```php
 php artisan schedule:run
